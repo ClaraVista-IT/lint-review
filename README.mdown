@@ -2,6 +2,7 @@
 
 - Create a python2 virtual environment (python3 did not work for me)
 - As the linters write to /tmp/workspace, either change this config or run everything as root
+- cp ENV.sh.default ENV.sh && set enviroment variables accordingly
 
 # [ORIGINAL README]
 
