@@ -1,4 +1,9 @@
-# Lint Review
+# Adapt to AWS
+
+- Create a python2 virtual environment (python3 did not work for me)
+- As the linters write to /tmp/workspace, either change this config or run everything as root
+
+# [ORIGINAL README]
 
 [![Build Status](https://api.travis-ci.org/markstory/lint-review.svg?branch=master)](https://travis-ci.org/markstory/lint-review)
 [![codecov.io](https://codecov.io/github/markstory/lint-review/coverage.svg?branch=master)](https://codecov.io/github/markstory/lint-review?branch=master)
