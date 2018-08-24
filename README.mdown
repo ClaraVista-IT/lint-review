@@ -1,8 +1,21 @@
-# Adapt to AWS
+# Adapt to Claravista-AWS
 
-- Create a python2 virtual environment (python3 did not work for me)
-- As the linters write to /tmp/workspace, either change this config or run everything as root
-- cp ENV.sh.default ENV.sh && set enviroment variables accordingly
+- Go to the 'webhooks' ec2 instance (current dns is ec2-34-202-234-4.compute-1.amazonaws.com)
+- sudo -u root -i (everything must be run as root!)
+- source /root/venvs/lint-py2/bin/activate (the necessary packages are installed in a virtual environment)
+- There are two screens running, one for gunicorn (web) and one for celery (worker)
+- export GITHUB_OAUTH_TOKEN=<your token>. (You have to do it inside the screens too!)
+- If you have restarted the instance, you will also need to export LINTREVIEW_SERVER_NAME=<ec2 dns>:5000. (You have to do it inside the screens too!)
+- Restart gunicorn and celery (just re-run the commands in the command history)
+- To register a new repository, run
+```
+lintreview register Claravista-IT <repository name>
+```
+If you wish to remove the hook, just run with 'unregister'
+- Finally, add a .lintrc to the master branch of your repository containing the linter tools you want to execute (see docs below)
+
+PS: I've set HISTCONTROL to ignorespace, so if you run any command with a starting space, it won't get recorded in the bash_history, which means noone will be able to see your token ;)
+
 
 # [ORIGINAL README]
 
